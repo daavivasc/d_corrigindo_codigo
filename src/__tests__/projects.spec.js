@@ -125,8 +125,9 @@ describe("Projects", () => {
     await request(app)
       .delete(`/repositories/${response.body.id}`)
       .expect(204);
-
-    const repositories = await request(app).get("/repositories");
+      
+      const repositories = await request(app).get("/repositories");
+      console.log(repositories.body);
 
     const repository = repositories.body.some(r => r.id === response.body.id);
 
